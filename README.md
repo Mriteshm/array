@@ -1,5 +1,4 @@
 # return array sum program
-public class Runner {
 public class Solution {
 	
 	public static int sum(int[] arr) 
