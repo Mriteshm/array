@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Runner {
+
+    public static void main(String[] args)  {
+        Scanner sr = new Scanner(System.in);
+        int t = sr.nextInt();
+        while(t > 0) 
+        {
+            int n=sr.nextInt();
+            int[] arr=new int[n];
+            Solution.arrange(arr, n);
+            for(int i=0;i<n;i++)
+            {
+                System.out.print(arr[i]+" ");
+            }
+            System.out.println();
+            t -= 1;
+        }
+    }
+   public static void arrange(int[] arr, int n)
+     {
+         if(n%2==0)
+          {
+             int sum=1;
+              for(int i=0;i<(n/2);i++)
+              {
+               arr[i]=sum;
+               sum=sum+2;
+              }
+             int mul=2;
+              for(int i=n;i>(n/2);i--)
+              {
+                  arr[i-1]=mul;
+                  mul=mul+2;
+              }
+          }
+              else
+              {
+                  int sum=1;
+                  for(int i=0;i<(n+1)/2;i++)
+                  {
+                      arr[i]=sum;
+                      sum=sum+2;
+                  }
+                  int mul=2;
+                  for(int i=n-1;i>(n-1)/2;i--)
+                  {
+                      arr[i]=mul;
+                      mul=mul+2;
+                  }
+              }
+          
+    }
+}
