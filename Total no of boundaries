@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Runner {
+
+    public static void main(String args[]) {
+        int t, N, M;
+        Scanner sr = new Scanner(System.in);
+        t = sr.nextInt();
+        for (int k = 0; k < t; ++k) {
+            N = sr.nextInt();
+            int ar[][] = new int[N][N]; // Swap n and m in array dimensions
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    ar[i][j] = sr.nextInt();
+                }
+            }
+            totalSum(ar);
+        }
+    }
+	public static void totalSum(int[][] mat) {
+		if(mat.length==0)
+		{
+			System.out.print(0);
+			return;
+		}
+		int m=mat.length;
+		int sum=0;
+		int sum1=0;
+		for(int i=0;i<m;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+             if(i==0||i==m-1||j==0||j==m-1)
+			 {
+			  sum=sum+mat[i][j];
+			 }
+			}
+		}
+		     int diagonal=0;
+			 for(int i=0;i<m;i++)
+			  {
+				  for(int j=0;j<m;j++)
+				  {
+			  if(i==j)
+			 {
+				 diagonal=diagonal+mat[i][j];
+			 }
+			 else if(i+j==m-1)
+			 {
+				 diagonal=diagonal+mat[i][j];
+			 }
+			}
+		}
+		sum1=sum+diagonal-(mat[0][0]+mat[0][m-1]+mat[m-1][0]+mat[m-1][m-1]);
+		System.out.print(sum1);
+	}
+}
