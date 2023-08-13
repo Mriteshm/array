@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Runner
+{
+	public static void main(String[] args) 
+	{
+	    Scanner sr = new Scanner(System.in);
+	    int t= sr.nextInt();
+	    while(t > 0)
+	    {
+    	    int n=sr.nextInt();
+    	    int ar[] = new int[n];
+    	    for(int i=0;i<n;i++)
+    	    {
+    	        ar[i]= sr.nextInt();
+    	    }
+    	    int d = sr.nextInt();
+    	    rotate(ar,d);
+    	    for(int i=0;i<n ;i++)
+    	    {
+    	        System.out.print(ar[i]+" ");
+    	    }
+    	    System.out.println();
+    	    t = t-1;
+	    }
+	}
+     public static void rotate(int[] arr, int d) {
+        
+       int[] temp = new int[d];
+        
+        for(int i=0; i<d; i++){
+            temp[i] = arr[i];
+        }
+        
+        int j = 0;
+        
+        for(int i = d; i<arr.length; i++){
+            arr[j] = arr[i];
+            j++;
+        }
+        
+        j = 0;
+        
+        for(int i = arr.length - d; i<arr.length; i++){
+            arr[i] = temp[j];
+            j++;
+        }
+        
+    }
+}
