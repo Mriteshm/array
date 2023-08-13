@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Runner
+{
+  public static int secondLargestElement(int[] arr) 
+    {
+         int largest=Integer.MIN_VALUE;
+         int second=Integer.MIN_VALUE;
+         for(int i=0;i<arr.length;i++)
+         {
+            if(arr[i]>largest)
+            {
+                second=largest;
+                largest=arr[i];
+            }
+            else if(arr[i]>second && arr[i]!=largest)
+            {
+             second=arr[i];
+            }
+         }
+         if(second==Integer.MIN_VALUE) 
+         {
+             return -2147483648;
+         }           
+         else{
+             return second;
+         }
+    }
+	public static void main(String[] args) 
+	{
+	    Scanner sr = new Scanner(System.in);
+	    int n=sr.nextInt();
+	    int ar[] = new int[n];
+	    for(int i=0;i<n;i++)
+	    {
+	        ar[i]= sr.nextInt();
+	    }
+	    int ans = secondLargestElement(ar,n);
+	    System.out.println(ans);
+	}
+}
