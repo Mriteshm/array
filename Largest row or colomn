@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Runner 
+{
+
+    public static void main(String args[]) {
+        int t, m, n;
+        Scanner sr = new Scanner(System.in);
+        t = sr.nextInt();
+        for (int k = 0; k < t; ++k) 
+		{
+            n = sr.nextInt();
+            m = sr.nextInt();
+            int ar[][] = new int[n][m]; 
+            for (int i = 0; i < n; i++) 
+			{
+                for (int j = 0; j < m; j++) 
+				{
+                    ar[i][j] = sr.nextInt();
+                }
+            }
+            Solution.findLargest(ar);
+        }
+    }
+	public static void findLargest(int mat[][]){
+		if(mat.length==0)
+		{
+			System.out.print("row"+" "+mat.length+" "+-2147483648);
+			return;
+		}
+		int m=mat.length;
+		int c=mat[0].length;
+		int largest1=0;
+		int largest2=0;
+		int ind1=-1;
+		int ind2=-1;
+		for(int j=0;j<c;j++)
+		{
+			int sum=0;
+			for(int i=0;i<m;i++)
+			{
+				sum=sum+mat[i][j];
+			}
+		if(sum>largest1)
+		{
+			largest1=sum;
+			ind1=j;
+		}
+		}
+		for(int i=0;i<m;i++)
+		{
+			int sum1=0;
+			for(int j=0;j<c;j++)
+			{
+				sum1=sum1+mat[i][j];
+			}
+			if(sum1>largest2)
+			{
+				largest2=sum1;
+				ind2=i;
+			}
+		}
+		if(largest2>=largest1)
+		{
+			System.out.print("row "+ind2+" "+largest2);
+		}
+		else{
+			System.out.print("column " +ind1+" "+largest1);
+		}
+
+	}
+}
